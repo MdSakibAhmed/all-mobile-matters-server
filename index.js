@@ -24,7 +24,7 @@ client.connect(err => {
   app.post("/addProduct",(req,res) => {
    console.log(req.body)
       mobileCollection.insertOne(req.body).then(result => {
-        console.log(result);
+        res.send(result.insertedCount > 0)
 
       })
   })
