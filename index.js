@@ -51,7 +51,7 @@ app.delete("/delete/:id",(req,res) => {
     const productId = req.params.id
     mobileCollection.findOneAndDelete({_id:objectId(productId)}).then(result => {
         console.log(result);
-        res.send(result)
+        res.send(!!result.ok)
     })
 })
 
